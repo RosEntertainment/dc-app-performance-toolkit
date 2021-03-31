@@ -42,4 +42,18 @@ def app_specific_action(webdriver, datasets):
             page.wait_until_visible((By.CLASS_NAME, "toDoListApp"))  # Wait for you app-specific UI element by ID selector
             page.wait_until_visible((By.CLASS_NAME, "toDoReportContainer"))  # Wait for you app-specific UI element by ID selector
         sub_measure()
+
+        @print_timing("selenium_app_custom_action:create_todo")
+        def sub_measure():
+            page.find_element_by_class_name((By.CLASS_NAME, "addTaskButton")).click()
+            
+            inputElement = page.find_element_by_xpath('//input[@placeholder="Insert a new task"]')
+            inputElement.send_keys('ToDo1')
+            inputElement.send_keys(Keys.ENTER)
+        sub_measure()
+
+        # @print_timing("selenium_app_custom_action:view_todo_in_report")
+        # def sub_measure():
+        # sub_measure()
+
     measure()
