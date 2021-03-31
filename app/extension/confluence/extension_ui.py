@@ -41,7 +41,7 @@ def app_specific_action(webdriver, datasets):
             page.go_to_url(f"{CONFLUENCE_SETTINGS.server_url}/pages/viewpage.action?pageId={app_specific_page_id}")
             page.wait_until_visible((By.ID, "title-text"))  # Wait for title field visible
             page.wait_until_visible((By.CLASS_NAME, "toDoListApp"))  # Wait for you app-specific UI element by ID selector
-            page.wait_until_visible((By.CLASS_NAME, "toDoReportContainer"))  # Wait for you app-specific UI element by ID selector
+            page.wait_until_visible((By.CLASS_NAME, "toDoReportContainer"))
         sub_measure()
 
         @print_timing("selenium_app_custom_action:create_todo")
@@ -53,8 +53,10 @@ def app_specific_action(webdriver, datasets):
             inputElement.send_keys(Keys.ENTER)
         sub_measure()
 
-        # @print_timing("selenium_app_custom_action:view_todo_in_report")
-        # def sub_measure():
-        # sub_measure()
+        @print_timing("selenium_app_custom_action:view_todo")
+        def sub_measure():
+            page.go_to_url(f"{CONFLUENCE_SETTINGS.server_url}/pages/viewpage.action?pageId={app_specific_page_id}")
+            page.wait_until_visible((By.CLASS_NAME, "tickTaskButton"))
+        sub_measure()
 
     measure()
