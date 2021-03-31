@@ -1,6 +1,7 @@
 import random
 
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
 from selenium_ui.base_page import BasePage
 from selenium_ui.conftest import print_timing
@@ -45,9 +46,9 @@ def app_specific_action(webdriver, datasets):
 
         @print_timing("selenium_app_custom_action:create_todo")
         def sub_measure():
-            page.find_element_by_class_name((By.CLASS_NAME, "addTaskButton")).click()
-            
-            inputElement = page.find_element_by_xpath('//input[@placeholder="Insert a new task"]')
+            page.get_element((By.CLASS_NAME, "addTaskButton")).click()
+
+            inputElement = page.get_element((By.XPATH, '//input[@placeholder="Insert a new task"]'))
             inputElement.send_keys('ToDo1')
             inputElement.send_keys(Keys.ENTER)
         sub_measure()
