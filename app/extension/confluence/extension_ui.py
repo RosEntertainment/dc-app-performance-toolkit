@@ -67,12 +67,10 @@ def app_specific_action(webdriver, datasets):
             # page.wait_until_visible((By.XPATH, "//*[@data-macro-name='rate-me-top-macro']"))
         # sub_measure()
 
-        # @print_timing("selenium_app_custom_action:rate_page")
+        # @print_timing("selenium_app_custom_action:view_profile_page")
         # def sub_measure():
-            # page.go_to_url(f"{CONFLUENCE_SETTINGS.server_url}/pages/viewpage.action?pageId={app_specific_page_id}")
-            # page.wait_until_visible((By.ID, "title-text"))  # Wait for title field visible
-            # page.wait_until_visible((By.XPATH, "//*[@data-macro-name='rate-me-macro']"))  # Wait for you app-specific UI element by ID selector
-            p# age.wait_until_visible((By.XPATH, "//*[@data-macro-name='rate-me-top-macro']"))
+            # page.go_to_url(f"{CONFLUENCE_SETTINGS.server_url}/plugins/rate/me/rateMeProfile.action")
+            # page.wait_until_visible((By.CLASS_NAME, "title"))
         # sub_measure()
 
     measure()
