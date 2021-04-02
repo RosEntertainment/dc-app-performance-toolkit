@@ -76,7 +76,7 @@ def app_specific_action(webdriver, datasets):
         @print_timing("selenium_app_custom_action:view_clean_users_page")
         def sub_measure():
             page.go_to_url(f"{CONFLUENCE_SETTINGS.server_url}/plugins/cleaner/usersGlobalConfiguration.action")
-            page.wait_until_present((By.CLASS_NAME, "cleanerUsersDiv"), 120)
+            page.wait_until_visible((By.CLASS_NAME, "cleanerUsersDiv"))
         sub_measure()
 
         @print_timing("selenium_app_custom_action:view_clean_groups_page")
@@ -88,6 +88,12 @@ def app_specific_action(webdriver, datasets):
         @print_timing("selenium_app_custom_action:view_clean_spaces_page")
         def sub_measure():
             page.go_to_url(f"{CONFLUENCE_SETTINGS.server_url}/plugins/cleaner/cleanerGlobalConfiguration.action")
+            page.wait_until_visible((By.CLASS_NAME, "space-input-label"))
+        sub_measure()
+        
+        @print_timing("selenium_app_custom_action:view_clean_blogs_and_pages_page")
+        def sub_measure():
+            page.go_to_url(f"{CONFLUENCE_SETTINGS.server_url}/plugins/cleaner/blogsPagesGlobalConfiguration.action")
             page.wait_until_visible((By.CLASS_NAME, "space-input-label"))
         sub_measure()
 
