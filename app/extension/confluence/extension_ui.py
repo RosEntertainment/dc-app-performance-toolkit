@@ -72,5 +72,23 @@ def app_specific_action(webdriver, datasets):
             # page.go_to_url(f"{CONFLUENCE_SETTINGS.server_url}/plugins/rate/me/rateMeProfile.action")
             # page.wait_until_visible((By.CLASS_NAME, "title"))
         # sub_measure()
+        
+        @print_timing("selenium_app_custom_action:view_clean_users_page")
+        def sub_measure():
+            page.go_to_url(f"{CONFLUENCE_SETTINGS.server_url}/plugins/cleaner/usersGlobalConfiguration.action")
+            page.wait_until_visible((By.CLASS_NAME, "cleanerUsersDiv"))
+        sub_measure()
+
+        @print_timing("selenium_app_custom_action:view_clean_groups_page")
+        def sub_measure():
+            page.go_to_url(f"{CONFLUENCE_SETTINGS.server_url}/plugins/cleaner/groupsGlobalConfiguration.action")
+            page.wait_until_visible((By.CLASS_NAME, "availableGroupsDiv"))
+        sub_measure()
+
+        @print_timing("selenium_app_custom_action:view_clean_spaces_page")
+        def sub_measure():
+            page.go_to_url(f"{CONFLUENCE_SETTINGS.server_url}/plugins/cleaner/cleanerGlobalConfiguration.action")
+            page.wait_until_visible((By.CLASS_NAME, "space-input-label"))
+        sub_measure()
 
     measure()
