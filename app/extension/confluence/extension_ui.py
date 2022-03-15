@@ -7,7 +7,6 @@ from selenium_ui.conftest import print_timing
 from selenium_ui.confluence.pages.pages import Login, AllUpdates
 from util.conf import CONFLUENCE_SETTINGS
 
-
 def app_specific_action(webdriver, datasets):
     page = BasePage(webdriver)
     if datasets['custom_pages']:

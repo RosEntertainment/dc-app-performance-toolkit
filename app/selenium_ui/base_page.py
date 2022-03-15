@@ -11,7 +11,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 TIMEOUT = 60
 
-
 class BasePage:
     page_url = ''
     page_loaded_selector = {}
