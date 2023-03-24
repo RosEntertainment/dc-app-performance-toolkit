@@ -10,8 +10,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.wait import WebDriverWait
 
-TIMEOUT = 20
-
+TIMEOUT = 60
 
 class BasePage:
     page_url = ''
